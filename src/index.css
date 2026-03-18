@@ -53,7 +53,7 @@ body {
       "main"
       "footer";
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 70px 1fr auto;
   }
 }
 
@@ -104,23 +104,28 @@ header {
   gap: 1.5rem;
   overflow-y: auto;
   overflow-x: hidden;
-  z-index: 2000;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+  transform: none !important;
 }
 
+/* Utilitaires visibilité pour React */
+.desktop-hidden { display: none !important; }
 @media (max-width: 768px) {
+  .desktop-hidden { display: flex !important; }
+  .mobile-hidden { display: none !important; }
+  
   .sidebar {
     position: fixed;
-    top: 0;
+    top: 70px;
     left: 0;
     bottom: 0;
-    width: 85%;
-    max-width: 350px;
-    transform: translateX(-100%);
-    box-shadow: 20px 0 50px rgba(0,0,0,0.8);
+    width: 320px;
+    z-index: 2000;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s ease;
   }
   .sidebar.open {
-    transform: translateX(0);
+    transform: translateX(0) !important;
   }
 }
 
@@ -204,11 +209,13 @@ section h3 {
 
 @media (max-width: 768px) {
   .timeline {
-    padding: 1rem;
-    flex-direction: column;
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
     gap: 0.5rem;
     height: auto;
+    min-height: 100px;
   }
+  header .logo { width: auto; margin-bottom: 0; }
 }
 
 .mono {

@@ -470,7 +470,7 @@ const App = () => {
         <div className="logo">{t('logo')} // <span className="text-accent">{t('coupling')}</span></div>
         <div className="mono small text-dim flex gap-4 items-center">
           <button 
-            className="md:hidden icon-btn" 
+            className="desktop-hidden icon-btn" 
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             style={{ border: '1px solid var(--border-color)', padding: '4px' }}
           >
@@ -500,7 +500,7 @@ const App = () => {
       </header>
 
       <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-        <div className="flex justify-between items-center md:hidden mb-4">
+        <div className="flex justify-between items-center desktop-hidden mb-4">
            <div className="text-accent bold">MENU</div>
            <button onClick={() => setIsSidebarOpen(false)} className="icon-btn">
              <X size={24} />
