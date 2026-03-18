@@ -28,7 +28,66 @@ const TRANSLATIONS: any = {
     coupling_active: ">>> COUPLAGE ACTIF DÉTECTÉ",
     searching_convergence: ">>> RECHERCHE DE CONVERGENCE...",
     event_stream: "FLUX D'ÉVÉNEMENTS",
-    no_witness: "Aucun point témoin sur cette décennie."
+    no_witness: "Aucun point témoin sur cette décennie.",
+    field_indicators: "INDICATEURS DE CHAMP",
+    psy_title: "Psychologie (ε)",
+    atm_title: "Atmosphère (z)",
+    convergence_tracks: "PISTES DE CONVERGENCE",
+    convergence_info_title: "C'est quoi une convergence ?",
+    convergence_info_sci: "Identification statistique d'un motif atmosphérique récurrent (anomalie) faisant suite à une impulsion psycho-émotionnelle similaire.",
+    convergence_info_eli5: "On ne sait pas encore s'il y a un lien. Mais si à chaque fois qu'on est tous très tristes ou en colère, il se met à faire le même type de temps, l'ordinateur le note.",
+    stat_goal: "Objectif statistique : Détecter si des chocs psycho-sociaux produisent des phénomènes météorologiques.",
+    deep_analysis: "ANALYSE PROFONDE : TENDANCE 50 ANS",
+    anomalies_recurrent: "Anomalies récurrentes post-choc",
+    natural_noise: "BRUIT NATUREL",
+    post_shock_signal: "SIGNAL POST-CHOC",
+    avg_delay: "Retard moyen",
+    convergence_point: "POINT DE CONVERGENCE",
+    calibration_source: "Calibration : Normales saisonnières 1991-2020 // Source : Copernicus ERA5.",
+    global_ci: "CI GLOBAL",
+    delay_L_days: "Retard L (Jours)",
+    delay_L_sci: "Décalage temporel (Lag) entre l'impulsion psychique et la réponse atmosphérique.",
+    delay_L_eli5: "C'est comme l'écho en montagne : tes cris (émotions) mettent du temps à revenir sous forme de vent (climat).",
+    tau_phase: "Tau (Phase)",
+    tau_sci: "Constante de décroissance temporelle de l'influence psychique sur le système.",
+    tau_eli5: "C'est comme dessiner dans le sable : plus ce réglage est haut, plus ton dessin d'émotion met du temps à s'effacer.",
+    alpha_balance: "Alpha (Balance)",
+    alpha_sci: "Réglage de la pondération entre les modes de réponse rapide et lente.",
+    alpha_eli5: "C'est comme choisir entre une batterie qui pétille (rapide) et une grosse vague (lente). Alpha dit qui gagne.",
+    export_raw_data: "Exporter les données brutes (CSV)",
+    superposition_phases: "Superposition des phases (Sync-Check)",
+    no_major_event: "Aucun événement majeur détecté à cette période.",
+    statistical_deviation: "Déviation Statistique",
+    consult_wikipedia: "Consulter la source Wikipedia",
+    singularity: "Singularité",
+    impulse: "Impulsion",
+    response: "Réponse",
+    computer_calculated_deviation: "L'ordinateur a calculé une déviation de",
+    just_after: "juste après",
+    zone: "ZONE",
+    duration: "DURÉE",
+    delta: "DELTA",
+    responses: {
+      low: "À {val}%, l'indice est statistiquement 'bas' mais scientifiquement majeur. C'est la signature d'un pont informationnel naissant.",
+      high: "Avec {val}%, le signal est clair : le système psycho-atmosphérique entre en cohérence.",
+      europe: "La convergence transcontinentale est de {val}%. Le couplage est une nappe géosystémique cohérente.",
+      how: "Mon rôle est de mesurer la synchronisation entre l'Attention Collective (ε) et les z-scores atmosphériques (z).",
+      compare: "Analyse terminée pour {country}. Index : {ci}.",
+      pattern: "Extraction des motifs ({activeDecade}) : Récurrence de {val}% de convergence.",
+      weather: "Le couplage peut se manifester par ces extrêmes (dômes de chaleur ou inondations éclair).",
+      history: "Le référentiel sur 50 ans (1975-2025) confirme que les {val}% actuels sont une anomalie colossale.",
+      sept11: "En 2001, l'anomalie de 14.1% a suivi les attentats du 11 septembre.",
+      covid: "2020 est le 'Grand Silence'. Avec 18.4% de couplage, c'est l'épisode le plus pur jamais enregistré.",
+      threshold: "Le seuil de 12% a été franchi à 4 reprises. Le pic historique à 18.4% a été enregistré durant l'hiver 2020.",
+      war: "Le Kernel opère sur un réseau non-local. Un conflit peut générer un stress informationnel dans {country}.",
+      eli5_general: "Imagine que l'atmosphère est un tambour : tes émotions sont le bâton qui tape dessus.",
+      elaborate: "Le {val}% que j'observe sur {country} n'est pas une simple erreur de lecture. C'est ce qu'on appelle une 'nappe de résonance'.",
+      documentation: "Documentation consolidée : Mes calculs sur {country} montrent un index CI de {ci}.",
+      condition: "Analyse du champ ε sur {country} : Avec un couplage de {val}%, la psyché commence à 'piloter' la structure des vents.",
+      methodo: "Contrairement aux modèles NWP, je calcule le couplage via z-scores dans {country}. Zone de transition à {val}%.",
+      status: "Kernel v4.2 opérationnel. Canal {country}. CI={ci}.",
+      default: "Analyse en temps réel pour {country} : signal de {val}% détecté pour {activeDecade}."
+    }
   },
   EN: {
     logo: "KERNEL EARTH PROJECT",
@@ -57,8 +116,67 @@ const TRANSLATIONS: any = {
     sync_check: "Phase Superposition (Sync-Check)",
     coupling_active: ">>> ACTIVE COUPLING DETECTED",
     searching_convergence: ">>> SEARCHING FOR CONVERGENCE...",
-    event_stream: "EVENT STREAM",
-    no_witness: "No witness point for this decade."
+    event_stream: "EVENT FLOW",
+    no_witness: "No witness point for this decade.",
+    field_indicators: "FIELD INDICATORS",
+    psy_title: "Psychology (ε)",
+    atm_title: "Atmosphere (z)",
+    convergence_tracks: "CONVERGENCE TRACKS",
+    convergence_info_title: "What is convergence?",
+    convergence_info_sci: "Statistical identification of a recurring atmospheric pattern (anomaly) following a similar psycho-emotional pulse.",
+    convergence_info_eli5: "We don't know if there's a link yet. But if every time we're sad or angry, the same weather happens, the computer notes it.",
+    stat_goal: "Statistical goal: Detect if psycho-social shocks produce meteorological phenomena.",
+    deep_analysis: "DEEP ANALYSIS: 50-YEAR TREND",
+    anomalies_recurrent: "Recurrent Post-Shock Anomalies",
+    natural_noise: "NATURAL NOISE",
+    post_shock_signal: "POST-SHOCK SIGNAL",
+    avg_delay: "Avg Delay",
+    convergence_point: "CONVERGENCE POINT",
+    calibration_source: "Calibration: 1991-2020 Seasonal Normals // Source: Copernicus ERA5.",
+    global_ci: "GLOBAL CI",
+    delay_L_days: "Delay L (Days)",
+    delay_L_sci: "Temporal lag between psychic pulse and atmospheric response.",
+    delay_L_eli5: "Like an echo in mountains: your cries (emotions) take time to return as wind (climate).",
+    tau_phase: "Tau (Phase)",
+    tau_sci: "Time decay constant of psychic influence on the system.",
+    tau_eli5: "Like drawing in sand: the higher this setting, the longer it takes for your emotion to fade.",
+    alpha_balance: "Alpha (Balance)",
+    alpha_sci: "Weighting adjustment between fast and slow response modes.",
+    alpha_eli5: "Like choosing between a sparkling battery (fast) and a giant wave (slow). Alpha decides who wins.",
+    export_raw_data: "Export raw data (CSV)",
+    superposition_phases: "Phase Superposition (Sync-Check)",
+    no_major_event: "No major events detected for this period.",
+    statistical_deviation: "Statistical Deviation",
+    consult_wikipedia: "Consult Wikipedia source",
+    singularity: "Singularity",
+    impulse: "Impulse",
+    response: "Response",
+    computer_calculated_deviation: "The computer calculated a deviation of",
+    just_after: "just after",
+    zone: "ZONE",
+    duration: "DURATION",
+    delta: "DELTA",
+    responses: {
+      low: "At {val}%, the index is statistically 'low' but scientifically major. This is the signature of an emerging informational bridge.",
+      high: "With {val}%, the signal is clear: the psycho-atmospheric system is entering coherence.",
+      europe: "Transcontinental convergence is {val}%. Coupling is a coherent geosystemic layer.",
+      how: "My role is to measure synchronization between Collective Attention (ε) and atmospheric z-scores (z).",
+      compare: "Analysis complete for {country}. Index: {ci}.",
+      pattern: "Pattern extraction ({activeDecade}): {val}% convergence recurrence detected.",
+      weather: "Coupling can manifest through these extremes (heat domes or flash floods).",
+      history: "The 50-year baseline (1975-2025) confirms that current {val}% is a massive anomaly.",
+      sept11: "In 2001, the 14.1% anomaly followed the September 11 attacks.",
+      covid: "2020 is the 'Great Silence'. With 18.4% coupling, it's the purest episode ever recorded.",
+      threshold: "The 12% threshold has been crossed 4 times. Historical peak 18.4% in winter 2020.",
+      war: "The Kernel operates on a non-local network. A conflict can generate informational stress in {country}.",
+      eli5_general: "Imagine the atmosphere is a drum: your emotions are the stick hitting it.",
+      elaborate: "The {val}% I observe on {country} is not a simple misread. It's what we call a 'resonance layer'.",
+      documentation: "Consolidated documentation: My calculations on {country} show a CI index of {ci}.",
+      condition: "Analysis of ε field on {country}: With {val}% coupling, psyche starts 'driving' wind structure.",
+      methodo: "Unlike NWP models, I calculate coupling via z-scores in {country}. Transition zone at {val}%.",
+      status: "Kernel v4.2 operational. Channel {country}. CI={ci}.",
+      default: "Real-time analysis for {country}: {val}% signal detected for {activeDecade}."
+    }
   }
 };
 import { Thermometer, Users, Zap, Settings, Activity, Download, Info, HelpCircle, X, Globe, Clock, Send } from 'lucide-react';
@@ -277,47 +395,44 @@ const App = () => {
       let response = "";
       const lower = text.toLowerCase();
       const globalVal = (computed.ci_global_series?.[currentTimeIndex] || 0) * 100;
+      const r = TRANSLATIONS[lang].responses;
       
-      if (lower.includes("faible") || lower.includes("bas") || lower.includes("petit") || lower.includes("7%")) {
-        if (globalVal < 10) {
-          response = `À ${globalVal.toFixed(2)}%, l'indice est statistiquement "bas" mais scientifiquement majeur. Dans un chaos atmosphérique à milliards de variables, l'émergence d'une synchronisation de 7% avec la psyché humaine est une anomalie colossale (le bruit de fond habituel est proche de 0). C'est la signature d'un pont informationnel naissant, une résonance de phase.`;
-        } else {
-          response = `Avec ${globalVal.toFixed(2)}%, le signal est clair : nous ne sommes plus dans le hasard. Le système psycho-atmosphérique entre en cohérence. Chaque dixième de point gagné ici représente une amplification des boucles de rétroaction climat-émotion.`;
-        }
-      } else if (lower.includes("europe") || lower.includes("global") || lower.includes("tout") || lower.includes("continent")) {
-        response = `Le Kernel analyse les 8 zones de force européennes. La convergence transcontinentale est de ${globalVal.toFixed(2)}%. Ce chiffre global lisse les disparités, mais confirme que le couplage n'est pas un phénomène local isolé : c'est une nappe géosystémique cohérente.`;
-      } else if (lower.includes("pourquoi") || lower.includes("comment") || lower.includes("expliq")) {
-        response = `Mon rôle est de mesurer la synchronisation entre l'Attention Collective (ε) et les z-scores atmosphériques (z). Le couplage se produit par résonance structurelle : les chocs sociaux modulent le champ d'entropie, entraînant une cristallisation des anomalies météorologiques. 7% est le seuil de détection du signal; à 15%, on passe en phase d'amplification.`;
-      } else if (lower.includes("comparer")) {
-        response = `Analyse comparative terminée. Pour ${selectedCountry}, l'index de couplage actuel est de ${computed.countries[selectedCountry].ci_series[currentTimeIndex].toFixed(4)}, ce qui représente une anomalie mesurable par rapport au référentiel ERA5.`;
+      if (lower.includes("faible") || lower.includes("bas") || lower.includes("low") || lower.includes("7%")) {
+        response = globalVal < 10 ? r.low.replace('{val}', globalVal.toFixed(2)) : r.high.replace('{val}', globalVal.toFixed(2));
+      } else if (lower.includes("europe") || lower.includes("global") || lower.includes("world") || lower.includes("mond") || lower.includes("tout") || lower.includes("continent")) {
+        response = r.europe.replace('{val}', globalVal.toFixed(2));
+      } else if (lower.includes("pourquoi") || lower.includes("comment") || lower.includes("expliq") || lower.includes("why") || lower.includes("how")) {
+        response = r.how;
+      } else if (lower.includes("comparer") || lower.includes("compare")) {
+        response = r.compare.replace('{country}', selectedCountry).replace('{ci}', computed.countries[selectedCountry].ci_series[currentTimeIndex].toFixed(4));
       } else if (lower.includes("motif") || lower.includes("pattern")) {
-        response = `Extraction des motifs (${activeDecade}) : Le signal psycho-atmosphérique montre une récurrence de ${globalVal.toFixed(1)}% de convergence. C'est une signature stable par rapport aux logs historiques.`;
-      } else if (lower.includes("cheresse") || lower.includes("inond") || lower.includes("pluie") || lower.includes("chaud") || lower.includes("extreme")) {
-        response = `Le couplage peut effectivement se manifester par ces extrêmes. Une "nappe de résonance" stable (blocage Ω) peut maintenir un dôme de chaleur et causer une sécheresse prolongée. À l'inverse, une décharge informationnelle soudaine peut "cristalliser" la vapeur d'eau en cellules orageuses hyper-massives, menant à des inondations éclair. C'est l'asymétrie de la psyché humaine (stress intense vs apathie) qui se reflète dans ces oscillations climatiques brutales. [En savoir plus sur Wikipédia](https://fr.wikipedia.org/wiki/Phénomène_météorologique_extrême)`;
-      } else if (lower.includes("50 ans") || lower.includes("comparaison") || lower.includes("référentiel")) {
-        response = `Le référentiel sur 50 ans (1975-2025) est ma base de vérité. J'y ai scanné plus de 12 000 événements pour isoler le "bruit naturel". C'est grâce à ces 5 décennies de logs que je peux affirmer que les 7.21% actuels ne sont pas une coïncidence. Sur 50 ans, la fréquence de synchro moyenne est de 0.8%. Sortir à 7%, c'est comme entendre un orchestre hurler dans une bibliothèque. Mon analyse profonde croise ces données pour valider chaque singularité.`;
-      } else if (lower.includes("2001")) {
-        response = `En 2001, l'anomalie de 14.1% est survenue après les attentats du 11 septembre. Ce choc informationnel mondial a provoqué une cristallisation immédiate des courants aériens (arrêt total du trafic aérien et modification des flux de convection). [Source Wikipedia](https://fr.wikipedia.org/wiki/Attentats_du_11_septembre_2001)`;
+        response = r.pattern.replace('{val}', globalVal.toFixed(1)).replace('{activeDecade}', activeDecade);
+      } else if (lower.includes("cheresse") || lower.includes("inond") || lower.includes("climate") || lower.includes("weather") || lower.includes("extreme") || lower.includes("pluie") || lower.includes("chaud")) {
+        response = r.weather;
+      } else if (lower.includes("50 ans") || lower.includes("50 year") || lower.includes("history") || lower.includes("logs") || lower.includes("comparaison") || lower.includes("référentiel")) {
+        response = r.history.replace('{val}', globalVal.toFixed(2));
+      } else if (lower.includes("2001") || lower.includes("september")) {
+        response = r.sept11;
       } else if (lower.includes("2020") || lower.includes("confinement") || lower.includes("covid")) {
-        response = `2020 est le "Grand Silence". Avec 18.4% de couplage, c'est l'épisode le plus pur jamais enregistré. L'arrêt brutal de l'activité humaine a été corrélé à une récurrence inhabituelle de blocages anticycloniques sur l'Europe. [Source Wikipedia](https://fr.wikipedia.org/wiki/Conséquences_de_la_pandémie_de_Covid-19_sur_l'environnement)`;
+        response = r.covid;
       } else if (lower.includes("12%") || lower.includes("passé") || lower.includes("déjà produit") || lower.includes("histoire")) {
-        response = `Oui. Le seuil de 12% ("Seuil de Cristallisation") a été franchi à 4 reprises dans les logs séculaires. Le pic historique à 18.4% a été enregistré durant l'hiver 2020 (confinement global), entraînant une anomalie de pression record sur l'Europe du Nord. Un autre pic à 14.1% a été noté en 2001. Ces épisodes confirment que lorsque le choc psychique est planétaire, l'atmosphère ne peut plus dissiper l'énergie et se synchronise violemment.`;
-      } else if (lower.includes("guerre") || lower.includes("conflit") || lower.includes("lointain")) {
-        response = `Le Kernel opère sur un réseau non-local. Un conflit à 5000km peut générer un "stress informationnel" en Europe. Si ce stress est assez coordonné, il module le champ ε de la zone FR par exemple. Mon rôle est justement de voir si cette émotion "importée" finit par faire pleuvoir ou par bloquer un anticyclone ici. C'est l'essence de la nappe de résonance transfrontalière.`;
-      } else if (lower.includes("5 ans") || lower.includes("enfant") || lower.includes("métaphore") || lower.includes("simple")) {
-        response = `Imagine que l'atmosphère est comme la surface d'un grand tambour. Quand les humains sont calmes, personne ne tape sur le tambour. Mais quand il se passe un gros événement et que tout le monde est agité (les 7% de synchro), c'est comme si des millions de petites mains tapaient doucement sur le tambour en même temps. Ça crée une vibration qui finit par déplacer les nuages et changer le vent. C'est ça le couplage : tes émotions sont le bâton qui tape sur le tambour du ciel.`;
-      } else if (lower.includes("développe") || lower.includes("précise") || lower.includes("détail") || lower.includes("en quoi") || lower.includes("pourquoi")) {
-        response = `Pour approfondir : le 7.21% de convergence que j'observe n'est pas une simple erreur de lecture. C'est ce qu'on appelle une "nappe de résonance". Imaginez l'atmosphère comme une surface d'eau calme : un choc social est un caillou jeté dedans. Les ondes de choc se synchronisent avec les flux d'altitude (Jet Stream), créant ces points de blocage que vous voyez sur la carte (${selectedCountry}). Le système n'est plus aléatoire, il est piloté par l'émotion résiduelle qui agit comme un catalyseur sur l'entropie météo.`;
-      } else if (lower.includes("documente") || lower.includes("preuve") || lower.includes("source") || lower.includes("référence")) {
-        response = `Documentation consolidée (Live Data) : Mes calculs sur ${selectedCountry} montrent un index CI de ${computed.countries[selectedCountry].ci_series[currentTimeIndex].toFixed(3)}. Ce chiffre est croisé en temps réel avec les jeux de données ERA5. La corrélation entre les blocages Ω et les états d'apathie est validée par mes 50 ans d'archives. [Sources sur les blocages atmosphériques](https://fr.wikipedia.org/wiki/Blocage_météorologique) // [Détails techniques ERA5](https://fr.wikipedia.org/wiki/ERA5)`;
-      } else if (lower.includes("condition") || lower.includes("état") || lower.includes("population") || lower.includes("colère") || lower.includes("angoisse") || lower.includes("tristesse")) {
-        response = `Analyse du champ ε sur ${selectedCountry} : Avec un couplage actuel de ${globalVal.toFixed(2)}%, mes corrélations croisées révèlent une signature thermodynamique précise. Les états de haute entropie (Colère/Angoisse) agissent comme des forçages cinétiques. Ici, le signal de ${globalVal.toFixed(2)}% suggère que la psyché des populations locales commence à "piloter" la structure des vents. [Résonance et Psychologie des Foules](https://fr.wikipedia.org/wiki/Psychologie_des_foules_(livre))`;
-      } else if (lower.includes("météo") || lower.includes("climat") || lower.includes("prévision")) {
-        response = `Précision méthodologique (Point ${selectedCountry}) : Contrairement aux modèles NWP classiques, je calcule la probabilité de couplage via une analyse de z-scores. À ${globalVal.toFixed(2)}%, nous sommes dans la zone de transition. Si nous atteignons 12%, le régime thermodynamique deviendra entièrement piloté par le flux informationnel social.`;
-      } else if (lower.includes("diag")) {
-        response = `Statut Système : Kernel v4.2 opérationnel. Canal ${selectedCountry} : CI=${computed.countries[selectedCountry].ci_series[currentTimeIndex].toFixed(5)}. Intégrité ERA5 : 100%. Latence liaison satellite : 12ms. Analyse fréquentielle en cours.`;
+        response = r.threshold;
+      } else if (lower.includes("guerre") || lower.includes("conflit") || lower.includes("lointain") || lower.includes("war")) {
+        response = r.war.replace('{country}', selectedCountry);
+      } else if (lower.includes("5 ans") || lower.includes("enfant") || lower.includes("métaphore") || lower.includes("simple") || lower.includes("explain like i'm 5")) {
+        response = r.eli5_general;
+      } else if (lower.includes("développe") || lower.includes("précise") || lower.includes("détail") || lower.includes("en quoi") || lower.includes("pourquoi") || lower.includes("elaborate")) {
+        response = r.elaborate.replace('{val}', globalVal.toFixed(2)).replace('{country}', selectedCountry);
+      } else if (lower.includes("documente") || lower.includes("preuve") || lower.includes("source") || lower.includes("référence") || lower.includes("proof")) {
+        response = r.documentation.replace('{country}', selectedCountry).replace('{ci}', computed.countries[selectedCountry].ci_series[currentTimeIndex].toFixed(3));
+      } else if (lower.includes("condition") || lower.includes("état") || lower.includes("population") || lower.includes("colère") || lower.includes("angoisse") || lower.includes("tristesse") || lower.includes("anger") || lower.includes("anxiety")) {
+        response = r.condition.replace('{country}', selectedCountry).replace('{val}', globalVal.toFixed(2));
+      } else if (lower.includes("météo") || lower.includes("climat") || lower.includes("prévision") || lower.includes("forecast") || lower.includes("weather")) {
+        response = r.methodo.replace('{country}', selectedCountry).replace('{val}', globalVal.toFixed(2));
+      } else if (lower.includes("diag") || lower.includes("status")) {
+        response = r.status.replace('{country}', selectedCountry).replace('{ci}', computed.countries[selectedCountry].ci_series[currentTimeIndex].toFixed(5));
       } else {
-        response = `Analyse en temps réel pour ${selectedCountry} : Le Kernel détecte un signal de corrélation courant de ${globalVal.toFixed(2)}%. Ce couplage suggère une persistance des motifs observés sans signe de déphasage immédiat. Souhaitez-vous une extraction des motifs pour la décennie ${activeDecade} ?`;
+        response = r.default.replace('{country}', selectedCountry).replace('{val}', globalVal.toFixed(2)).replace('{activeDecade}', activeDecade);
       }
       setMessages(prev => [...prev, { role: 'bot', text: response }]);
       setIsThinking(false);
@@ -327,7 +442,7 @@ const App = () => {
   if (loading || !rawData || !computed.countries) {
     return (
       <div style={{ height: '100vh', width: '100vw', background: '#020617', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div className="accent mono uppercase" style={{ letterSpacing: '4px' }}>INITIALIZING PLANETARY SYSTEM...</div>
+        <div className="accent mono uppercase" style={{ letterSpacing: '4px' }}>{t('initializing')}</div>
       </div>
     );
   }
@@ -348,12 +463,12 @@ const App = () => {
           </button>
           <div className="flex gap-4 items-center">
             <div className="flex flex-col items-end">
-              <span className="text-accent" style={{ fontSize: '0.8rem', fontWeight: 700 }}>{liveTime.toLocaleTimeString('fr-FR')}</span>
-              <span style={{ fontSize: '0.6rem' }}>{liveTime.toLocaleDateString('fr-FR')}</span>
+              <span className="text-accent" style={{ fontSize: '0.8rem', fontWeight: 700 }}>{liveTime.toLocaleTimeString(lang === 'FR' ? 'fr-FR' : 'en-US')}</span>
+              <span style={{ fontSize: '0.6rem' }}>{liveTime.toLocaleDateString(lang === 'FR' ? 'fr-FR' : 'en-US')}</span>
             </div>
             <span className="accent">|</span>
             <div className="flex gap-2">
-              GLOBAL CI: <span className="text-accent">{computed.ci_global_series?.[currentTimeIndex]?.toFixed(4) || '0.0000'}</span>
+              {t('global_ci')}: <span className="text-accent">{computed.ci_global_series?.[currentTimeIndex]?.toFixed(4) || '0.0000'}</span>
             </div>
           </div>
         </div>
@@ -361,15 +476,15 @@ const App = () => {
 
       <aside className="sidebar">
         <section>
-          <h3><Settings size={14} /> CONTRÔLE DYNAMIQUE</h3>
+          <h3><Settings size={14} /> {lang === 'FR' ? 'CONTRÔLE DYNAMIQUE' : 'DYNAMIC CONTROL'}</h3>
           <div className="card">
             <div className="flex justify-between mb-1">
               <span className="small uppercase mono text-dim">
-                Retard L (Jours) 
+                {t('delay_L_days')}
                 <InfoIcon 
-                  title="RETARD L"
-                  sci="Décalage temporel (Lag) entre l'impulsion psychique et la réponse atmosphérique."
-                  eli5="C'est comme l'écho en montagne : tes cris (émotions) mettent du temps à revenir sous forme de vent (climat)." 
+                  title={t('delay_L_days')}
+                  sci={t('delay_L_sci')}
+                  eli5={t('delay_L_eli5')} 
                 />
               </span>
               <span className="text-accent mono small">{params.L}j</span>
@@ -379,11 +494,11 @@ const App = () => {
             
             <div className="flex justify-between mb-1 mt-4">
               <span className="small uppercase mono text-dim">
-                Tau (Phase) 
+                {t('tau_phase')}
                 <InfoIcon 
-                  title="TAU"
-                  sci="Constante de décroissance temporelle de l'influence psychique sur le système."
-                  eli5="C'est comme dessiner dans le sable : plus ce réglage est haut, plus ton dessin d'émotion met du temps à s'effacer."
+                  title={t('tau_phase')}
+                  sci={t('tau_sci')}
+                  eli5={t('tau_eli5')}
                 />
               </span>
               <span className="text-accent mono small">{params.tau1}j</span>
@@ -393,11 +508,11 @@ const App = () => {
 
             <div className="flex justify-between mb-1 mt-4">
               <span className="small uppercase mono text-dim">
-                Alpha (Balance) 
+                {t('alpha_balance')}
                 <InfoIcon 
-                  title="ALPHA"
-                  sci="Réglage de la pondération entre les modes de réponse rapide et lente."
-                  eli5="C'est comme choisir entre une batterie qui pétille (rapide) et une grosse vague (lente). Alpha dit qui gagne."
+                  title={t('alpha_balance')}
+                  sci={t('alpha_sci')}
+                  eli5={t('alpha_eli5')}
                 />
               </span>
               <span className="text-accent mono small">{params.a}</span>
@@ -408,7 +523,7 @@ const App = () => {
         </section>
 
         <section>
-          <h3><Globe size={14} /> RÉSEAU DE CAPTEURS</h3>
+          <h3><Globe size={14} /> {lang === 'FR' ? 'RÉSEAU DE CAPTEURS' : 'SENSOR NETWORK'}</h3>
           <div className="flex flex-wrap gap-2 mb-4">
             <button 
               className={`mono small ${selectedCountry === 'EU' ? 'text-accent border-accent' : 'text-dim border-dim'}`}
@@ -433,20 +548,20 @@ const App = () => {
               <div className="text-accent mono" style={{ fontSize: '1.4rem', fontWeight: 700 }}>{selectedCountry}</div>
               <div className="small mono text-dim uppercase">{t('coupling_index')}: {currentCountry.ci_series[currentTimeIndex].toFixed(4)}</div>
             </div>
-            <button onClick={() => downloadCSV(currentCountry, selectedCountry)} className="icon-btn" title="Exporter les données brutes (CSV)">
+            <button onClick={() => downloadCSV(currentCountry, selectedCountry)} className="icon-btn" title={t('export_raw_data')}>
               <Download size={20} />
             </button>
           </div>
         </section>
 
         <section>
-          <h3><Zap size={14} /> INDICATEURS DE CHAMP</h3>
+          <h3><Zap size={14} /> {t('field_indicators')}</h3>
           <div className="flex flex-col gap-2">
             <div className={`card cursor-pointer ${indicator === 'psy_res' ? 'accent' : ''}`} style={{ padding: '10px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} onClick={() => setIndicator('psy_res')}>
               <div className="flex items-center gap-3">
                 <Users size={16} /> 
                 <div className="flex flex-col">
-                  <span className="mono small uppercase">Psyché (ε)</span>
+                  <span className="mono small uppercase">{t('psy_title')}</span>
                   <span className="mono text-accent">{currentCountry.psy_res[currentTimeIndex].toFixed(3)}</span>
                 </div>
               </div>
@@ -456,7 +571,7 @@ const App = () => {
               <div className="flex items-center gap-3">
                 <Thermometer size={16} /> 
                 <div className="flex flex-col">
-                  <span className="mono small uppercase">Atmosphère (z)</span>
+                  <span className="mono small uppercase">{t('atm_title')}</span>
                   <span className="mono text-accent">{currentCountry.atm[currentTimeIndex].toFixed(3)}</span>
                 </div>
               </div>
@@ -467,7 +582,7 @@ const App = () => {
                 <div className="flex items-center gap-3">
                   <Activity size={16} /> 
                   <div className="flex flex-col">
-                    <span className="mono small uppercase">Coupling (Index)</span>
+                    <span className="mono small uppercase">{t('coupling_index')}</span>
                     <span className="mono text-accent">{currentCountry.ci_series[currentTimeIndex].toFixed(4)}</span>
                   </div>
                 </div>
@@ -475,14 +590,14 @@ const App = () => {
               </div>
               {indicator === 'ci' && (
                 <div className="mt-2">
-                  <div className="mono small text-dim uppercase mb-1" style={{ fontSize: '0.6rem' }}>Superposition des phases (Sync-Check)</div>
+                  <div className="mono small text-dim uppercase mb-1" style={{ fontSize: '0.6rem' }}>{t('superposition_phases')}</div>
                   <SignalSync 
                     psy={currentCountry.psy_res.slice(Math.max(0, currentTimeIndex - 20), currentTimeIndex + 1)} 
                     atm={currentCountry.atm.slice(Math.max(0, currentTimeIndex - 20), currentTimeIndex + 1)} 
                     t={t}
                   />
                   <div className="mono small text-accent mt-2 animate-pulse" style={{ fontSize: '0.6rem' }}>
-                    {currentCountry.ci_series[currentTimeIndex] > 0.1 ? ">>> COUPLAGE ACTIF DÉTECTÉ" : ">>> RECHERCHE DE CONVERGENCE..."}
+                    {currentCountry.ci_series[currentTimeIndex] > 0.1 ? t('coupling_active') : t('searching_convergence')}
                   </div>
                 </div>
               )}
@@ -491,7 +606,7 @@ const App = () => {
         </section>
 
         <section>
-          <h3><Activity size={14} /> FLUX D'ÉVÉNEMENTS</h3>
+          <h3><Activity size={14} /> {lang === 'FR' ? 'FLUX D\'ÉVÉNEMENTS' : 'EVENT FLOW'}</h3>
           <div className="flex flex-col gap-2">
             {activeEvents.length > 0 ? activeEvents.map((e: any, i: number) => (
               <div key={i} className="card" style={{ padding: '8px', borderLeft: `2px solid ${e.type === 'psy' ? '#60a5fa' : '#fb923c'}` }}>
@@ -499,18 +614,18 @@ const App = () => {
                 <div className="mono small uppercase mt-1">{e.label}</div>
               </div>
             )) : (
-              <div className="mono small text-dim italic" style={{ padding: '10px' }}>Aucun événement majeur détecté à cette période.</div>
+              <div className="mono small text-dim italic" style={{ padding: '10px' }}>{t('no_major_event')}</div>
             )}
           </div>
         </section>
 
         <section>
           <h3>
-            <Zap size={14} /> PISTES DE CONVERGENCE
+            <Zap size={14} /> {t('convergence_tracks')}
             <InfoIcon 
-              title="C'est quoi une convergence ?"
-              sci="Identification statistique d'un motif atmosphérique récurrent (anomalie) faisant suite à une impulsion psycho-émotionnelle similaire."
-              eli5="On ne sait pas encore s'il y a un lien. Mais si à chaque fois qu'on est tous très tristes ou en colère, il se met à faire le même type de temps (ex: un grand soleil soudain en hiver), alors l'ordinateur le note pour que nous puissions comprendre pourquoi."
+              title={t('convergence_info_title')}
+              sci={t('convergence_info_sci')}
+              eli5={t('convergence_info_eli5')}
             />
           </h3>
           <div className="flex flex-col gap-2">
@@ -530,7 +645,7 @@ const App = () => {
                   <div className="flex gap-2">
                     <span className="mono small" style={{ color: '#ef4444' }}>{p.ci.toFixed(4)}</span>
                     <a 
-                      href={`https://fr.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(p.label + ' ' + p.event)}`} 
+                      href={`https://${lang === 'FR' ? 'fr' : 'en'}.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(p.label + ' ' + p.event)}`} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-dim hover:text-accent transition-colors"
@@ -547,15 +662,15 @@ const App = () => {
           </div>
           <div className="card mt-2" style={{ padding: '10px', background: 'rgba(96, 165, 250, 0.05)', border: '1px dashed var(--border-color)' }}>
             <div className="mono small text-dim italic">
-              Objectif statistique : Détecter si des chocs psycho-sociaux produisent des phénomènes météorologiques.
+              {t('stat_goal')}
             </div>
           </div>
         </section>
 
         <section>
-          <h3><Globe size={14} /> ANALYSE PROFONDE : TENDANCE 50 ANS</h3>
+          <h3><Globe size={14} /> {t('deep_analysis')}</h3>
           <div className="card" style={{ padding: '12px', background: 'rgba(56, 189, 248, 0.05)', border: '1px solid rgba(56, 189, 248, 0.2)' }}>
-            <div className="mono small text-accent mb-3 uppercase" style={{ fontSize: '0.65rem' }}>Anomalies récurrentes post-choc ({histData?.total_events_scanned || 0} événements)</div>
+            <div className="mono small text-accent mb-3 uppercase" style={{ fontSize: '0.65rem' }}>{t('anomalies_recurrent')} ({histData?.total_events_scanned || 0} {lang === 'FR' ? 'événements' : 'events'})</div>
             {histData?.patterns.map((p: any, i: number) => (
               <div key={i} className="mb-4">
                 <div className="flex justify-between mono small mb-1">
@@ -565,23 +680,23 @@ const App = () => {
                 <div style={{ width: '100%', height: '4px', background: 'rgba(255,255,255,0.1)', borderRadius: '2px', position: 'relative', overflow: 'hidden' }}>
                   <div style={{ width: `${p.recurrence}%`, height: '100%', background: 'var(--text-accent)', borderRadius: '2px', boxShadow: '0 0 10px var(--text-accent)' }} />
                   {/* Baseline marker (Bruit naturel) */}
-                  <div title="Fréquence naturelle" style={{ position: 'absolute', left: `${p.baseline}%`, top: 0, bottom: 0, width: '2px', background: '#ef4444', zIndex: 2 }} />
+                  <div title={t('natural_noise')} style={{ position: 'absolute', left: `${p.baseline}%`, top: 0, bottom: 0, width: '2px', background: '#ef4444', zIndex: 2 }} />
                 </div>
                 
                 <div className="flex justify-between items-center mt-2">
                    <div className="mono small uppercase" style={{ fontSize: '0.55rem', color: '#fbbf24' }}>
                      <Clock size={10} style={{ verticalAlign: 'middle', marginRight: '4px' }}/>
-                     Retard moyen : {p.avg_delay}
+                     {t('avg_delay')} : {p.avg_delay}
                    </div>
                    {p.recurrence > p.baseline * 3 && (
                      <div className="mono small uppercase p-1" style={{ fontSize: '0.5rem', background: 'rgba(34, 197, 94, 0.2)', color: '#4ade80', borderRadius: '2px', border: '1px solid #4ade80' }}>
-                       POINT DE CONVERGENCE
+                       {t('convergence_point')}
                      </div>
                    )}
                 </div>
                 
                 <div className="mono text-dim mt-2" style={{ fontSize: '0.55rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '4px' }}>
-                  <span style={{ color: '#ef4444' }}>BRUIT NATUREL: {p.baseline}%</span> | <span style={{ color: 'var(--text-accent)' }}>SIGNAL POST-CHOC: {p.recurrence}%</span>
+                  <span style={{ color: '#ef4444' }}>{t('natural_noise')}: {p.baseline}%</span> | <span style={{ color: 'var(--text-accent)' }}>{t('post_shock_signal')}: {p.recurrence}%</span>
                 </div>
                 {/* Liste des preuves rigoureuses filtrées par décennie */}
                 <div className="mt-3 flex flex-col gap-2">
@@ -593,34 +708,34 @@ const App = () => {
                         <span className="text-accent" style={{ fontWeight: 700 }}>{me.label}</span>
                         <div className="flex gap-2 items-center">
                           <span className="text-dim" style={{ fontSize: '0.5rem' }}>{me.date}</span>
-                          <div title="Déviation Statistique" style={{ fontSize: '0.45rem', padding: '1px 4px', background: 'rgba(239, 68, 68, 0.2)', color: '#ef4444', borderRadius: '2px', border: '1px solid #ef4444' }}>
+                          <div title={t('statistical_deviation')} style={{ fontSize: '0.45rem', padding: '1px 4px', background: 'rgba(239, 68, 68, 0.2)', color: '#ef4444', borderRadius: '2px', border: '1px solid #ef4444' }}>
                             {me.rarity}
                           </div>
                           <a 
-                            href={`https://fr.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(me.label)}`} 
+                            href={`https://${lang === 'FR' ? 'fr' : 'en'}.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(me.label)}`} 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="text-dim hover:text-accent transition-colors"
-                            title="Consulter la source Wikipedia"
+                            title={t('consult_wikipedia')}
                           >
                             <Info size={12} />
                           </a>
                           <InfoIcon 
-                            title={`SINGULARITÉ : ${me.label}`}
-                            sci={`IMPULSION : ${me.event_desc} // RÉPONSE : ${me.climate_desc}`}
-                            eli5={`L'ordinateur a calculé une déviation de ${me.rarity} (rare) juste après '${me.label}'.`}
+                            title={`${t('singularity')} : ${me.label}`}
+                            sci={`${t('impulse')} : ${me.event_desc} // ${t('response')} : ${me.climate_desc}`}
+                            eli5={`${t('computer_calculated_deviation')} ${me.rarity} (rare) ${t('just_after')} '${me.label}'.`}
                           />
                         </div>
                       </div>
                       <div className="mono text-dim" style={{ fontSize: '0.55rem' }}>
-                        ZONE: <span style={{ color: '#fff' }}>{me.country}</span> | 
-                        DURÉE: <span style={{ color: '#fff' }}>{me.duration}</span> | 
-                        DELTA: <span style={{ color: '#fbbf24' }}>{me.delta}</span>
+                        {t('zone')}: <span style={{ color: '#fff' }}>{me.country}</span> | 
+                        {t('duration')}: <span style={{ color: '#fff' }}>{me.duration}</span> | 
+                        {t('delta')}: <span style={{ color: '#fbbf24' }}>{me.delta}</span>
                       </div>
                     </div>
                   ))}
                   {p.matching_events?.filter((me: any) => me.date.startsWith(activeDecade.slice(0, 3))).length === 0 && (
-                    <div className="mono text-dim italic" style={{ fontSize: '0.5rem', opacity: 0.5 }}>Aucun point témoin sur cette décennie.</div>
+                    <div className="mono text-dim italic" style={{ fontSize: '0.5rem', opacity: 0.5 }}>{t('no_witness')}</div>
                   )}
                 </div>
               </div>
