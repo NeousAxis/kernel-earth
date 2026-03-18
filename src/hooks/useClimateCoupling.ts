@@ -76,12 +76,29 @@ export const useClimateCoupling = (rawData: any) => {
         ci_series
       };
     });
-
-    const countries = Object.values(processedCountries);
+    
+    const countriesArray = Object.values(processedCountries);
     const global_ci_series = Array.from({ length: rawData.countries['FR'].dates.length }, (_, t) => {
-      const sum = countries.reduce((acc: number, c: any) => acc + (c.ci_series[t] || 0), 0);
-      return sum / (countries.length || 1);
+      const sum = countriesArray.reduce((acc: number, c: any) => acc + (c.ci_series[t] || 0), 0);
+      return sum / (countriesArray.length || 1);
     });
+
+    // 4. Add virtual country "EU" (Composite Europe)
+    const codes = Object.keys(processedCountries);
+    if (codes.length > 0) {
+      const n = processedCountries[codes[0]].dates.length;
+      processedCountries['EU'] = {
+        name: "EU (ALL EUROPE)",
+        dates: processedCountries[codes[0]].dates,
+        psy_res: Array.from({ length: n }, (_, i) => codes.reduce((acc, c) => acc + processedCountries[c].psy_res[i], 0) / codes.length),
+        atm: Array.from({ length: n }, (_, i) => codes.reduce((acc, c) => acc + processedCountries[c].atm[i], 0) / codes.length),
+        psy_conv: Array.from({ length: n }, (_, i) => codes.reduce((acc, c) => acc + processedCountries[c].psy_conv[i], 0) / codes.length),
+        ci_series: global_ci_series,
+        matching_events: codes.flatMap(c => processedCountries[c].matching_events || [])
+          .sort((a,b) => a.date.localeCompare(b.date))
+          .filter((v, i, a) => a.findIndex(t => (t.date === v.date && t.label === v.label)) === i)
+      };
+    }
 
     return { 
       countries: processedCountries, 

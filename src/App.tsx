@@ -1,4 +1,66 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
+const TRANSLATIONS: any = {
+  FR: {
+    logo: "PROJET KERNEL EARTH",
+    coupling: "COUPLAGE",
+    about: "À PROPOS DU PROJET",
+    sensors: "RÉSEAU DE CAPTEURS",
+    dynamic_control: "CONTRÔLE DYNAMIQUE",
+    temporal_response: "KERNEL : RÉPONSE TEMPORELLE",
+    manifesto_title: "PROJET KERNEL EARTH // MANIFESTE",
+    manifesto_q: "La question à laquelle ce projet Kernel Earth essaie de répondre par l'observation est : existe-t-il un lien entre les réactions psycho-émotionnelles collectives des humains qui font suite à un événement dans le monde et les phénomènes climatiques en Europe ?",
+    sismograph_desc: "Pour tenter de répondre à cette question, il a été créé un sismographe de couplage psycho-atmosphérique.",
+    measure_desc: "Il ne s'agit pas d'une prévision météo, mais d'une mesure de la synchronisation entre l'attention collective (psyché résiduelle ε) et les anomalies climatiques (z-scores atmosphériques).",
+    ci_desc: "Le Coupling Index (CI) est calculé dynamiquement en temps réel selon les paramètres du Kernel de réponse temporelle que vous ajustez dans le panneau de gauche.",
+    baseline: "RÉFÉRENTIEL GÉODÉSIQUE WGS84 // SOURCES : ERA5 & WIKIMEDIA",
+    download_logs: "Télécharger les logs",
+    input_placeholder: "Transmission au Kernel...",
+    thinking: "SYNCHRONISATION EN COURS...",
+    initial_msg: "Je suis prêt. Je peux analyser les singularités de la décennie {decade} ou comparer les chocs entre les pays européens. Que souhaitez-vous savoir sur l'anomalie actuelle ({country}) ?",
+    psy_blue: "PSY (BLEU)",
+    atm_orange: "ATM (ORANGE)",
+    planetary_system: "VÉRUS PLANÈTE TERRE // SYSTÈME ACTIF // 1975-2026",
+    initializing: "INITIALISATION DU SYSTÈME PLANÉTAIRE...",
+    psy_label: "Psychologie (ε)",
+    atm_label: "Atmosphère (z)",
+    coupling_index: "Couplage (Index)",
+    sync_check: "Superposition des phases (Sync-Check)",
+    coupling_active: ">>> COUPLAGE ACTIF DÉTECTÉ",
+    searching_convergence: ">>> RECHERCHE DE CONVERGENCE...",
+    event_stream: "FLUX D'ÉVÉNEMENTS",
+    no_witness: "Aucun point témoin sur cette décennie."
+  },
+  EN: {
+    logo: "KERNEL EARTH PROJECT",
+    coupling: "COUPLING",
+    about: "ABOUT PROJECT",
+    sensors: "SENSOR NETWORK",
+    dynamic_control: "DYNAMIC CONTROL",
+    temporal_response: "KERNEL : TEMPORAL RESPONSE",
+    manifesto_title: "KERNEL EARTH PROJECT // MANIFESTO",
+    manifesto_q: "The question this Kernel Earth project attempts to answer through observation is: is there a link between collective psycho-emotional reactions of humans following global events and climatic phenomena in Europe?",
+    sismograph_desc: "To attempt to answer this question, a psycho-atmospheric coupling seismograph has been created.",
+    measure_desc: "This is not a weather forecast, but a measurement of synchronization between collective attention (residual psyche ε) and climatic anomalies (atmospheric z-scores).",
+    ci_desc: "The Coupling Index (CI) is dynamically calculated in real-time according to the Temporal Response Kernel parameters adjusted in the left panel.",
+    baseline: "WGS84 GEODETIC REFERENCE // SOURCES: ERA5 & WIKIMEDIA",
+    download_logs: "Download logs",
+    input_placeholder: "Transmission to Kernel...",
+    thinking: "SYNCHRONIZING...",
+    initial_msg: "System ready. I can analyze singularities from the {decade} decade or compare shocks across European countries. What would you like to know about the current anomaly ({country})?",
+    psy_blue: "PSY (BLUE)",
+    atm_orange: "ATM (ORANGE)",
+    planetary_system: "VERUS PLANET EARTH // ACTIVE SYSTEM // 1975-2026",
+    initializing: "INITIALIZING PLANETARY SYSTEM...",
+    psy_label: "Psychology (ε)",
+    atm_label: "Atmosphere (z)",
+    coupling_index: "Coupling (Index)",
+    sync_check: "Phase Superposition (Sync-Check)",
+    coupling_active: ">>> ACTIVE COUPLING DETECTED",
+    searching_convergence: ">>> SEARCHING FOR CONVERGENCE...",
+    event_stream: "EVENT STREAM",
+    no_witness: "No witness point for this decade."
+  }
+};
 import { Thermometer, Users, Zap, Settings, Activity, Download, Info, HelpCircle, X, Globe, Clock, Send } from 'lucide-react';
 import EuropeMap from './components/EuropeMap';
 import KernelOrb from './components/KernelOrb';
@@ -58,7 +120,7 @@ const Sparkline = ({ data, color }: { data: number[], color: string }) => {
   );
 };
 
-const SignalSync = ({ psy, atm }: { psy: number[], atm: number[] }) => {
+const SignalSync = ({ psy, atm, t }: { psy: number[], atm: number[], t: any }) => {
   if (!psy || !atm || psy.length < 2) return null;
   const normalize = (data: number[]) => {
     const min = Math.min(...data);
@@ -77,8 +139,8 @@ const SignalSync = ({ psy, atm }: { psy: number[], atm: number[] }) => {
         <polyline fill="none" stroke="#fb923c" strokeWidth="2" points={pAtm} />
       </svg>
       <div className="flex justify-between px-2 py-1 mono text-dim" style={{ fontSize: '0.5rem', position: 'absolute', bottom: 0, width: '100%' }}>
-        <span>PSY (BLEU)</span>
-        <span>ATM (ORANGE)</span>
+        <span>{t('psy_blue')}</span>
+        <span>{t('atm_orange')}</span>
       </div>
     </div>
   );
@@ -92,6 +154,8 @@ const App = () => {
   const [indicator, setIndicator] = useState<'psy_res'|'atm'|'ci'>('ci');
   const [loading, setLoading] = useState(true);
   const [showProjectInfo, setShowProjectInfo] = useState(false);
+  const [lang, setLang] = useState<'FR'|'EN'>('FR');
+  const t = (key: string) => TRANSLATIONS[lang][key] || key;
   const [liveTime, setLiveTime] = useState(new Date());
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -270,10 +334,17 @@ const App = () => {
   return (
     <>
       <header>
-        <div className="logo">PROJET KERNEL EARTH // <span className="text-accent">COUPLING</span></div>
-        <div className="mono small text-dim flex gap-2 items-center">
+        <div className="logo">{t('logo')} // <span className="text-accent">{t('coupling')}</span></div>
+        <div className="mono small text-dim flex gap-4 items-center">
+          <button 
+            className="icon-btn px-2 py-1" 
+            onClick={() => setLang(lang === 'FR' ? 'EN' : 'FR')}
+            style={{ border: '1px solid var(--text-accent)', color: 'var(--text-accent)', fontWeight: 'bold' }}
+          >
+            {lang === 'FR' ? 'EN' : 'FR'}
+          </button>
           <button className="icon-btn flex items-center gap-2" onClick={() => setShowProjectInfo(true)} style={{ border: '1px solid var(--border-color)', padding: '4px 8px' }}>
-            <Info size={14} /> <span className="uppercase">À PROPOS DU PROJET</span>
+            <Info size={14} /> <span className="uppercase">{t('about')}</span>
           </button>
           <div className="flex gap-4 items-center">
             <div className="flex flex-col items-end">
@@ -339,7 +410,14 @@ const App = () => {
         <section>
           <h3><Globe size={14} /> RÉSEAU DE CAPTEURS</h3>
           <div className="flex flex-wrap gap-2 mb-4">
-            {Object.keys(computed.countries).map(code => (
+            <button 
+              className={`mono small ${selectedCountry === 'EU' ? 'text-accent border-accent' : 'text-dim border-dim'}`}
+              style={{ padding: '2px 6px', border: '1px solid currentColor', background: 'transparent', cursor: 'pointer' }}
+              onClick={() => setSelectedCountry('EU')}
+            >
+              EU (ALL)
+            </button>
+            {Object.keys(computed.countries).filter(c => c !== 'EU').map(code => (
               <button 
                 key={code} 
                 className={`mono small ${selectedCountry === code ? 'text-accent border-accent' : 'text-dim border-dim'}`}
@@ -353,7 +431,7 @@ const App = () => {
           <div className="card flex justify-between items-center" style={{ borderLeft: '3px solid var(--text-accent)' }}>
             <div>
               <div className="text-accent mono" style={{ fontSize: '1.4rem', fontWeight: 700 }}>{selectedCountry}</div>
-              <div className="small mono text-dim">INDEX DE COUPLAGE: {currentCountry.ci_series[currentTimeIndex].toFixed(4)}</div>
+              <div className="small mono text-dim uppercase">{t('coupling_index')}: {currentCountry.ci_series[currentTimeIndex].toFixed(4)}</div>
             </div>
             <button onClick={() => downloadCSV(currentCountry, selectedCountry)} className="icon-btn" title="Exporter les données brutes (CSV)">
               <Download size={20} />
@@ -401,6 +479,7 @@ const App = () => {
                   <SignalSync 
                     psy={currentCountry.psy_res.slice(Math.max(0, currentTimeIndex - 20), currentTimeIndex + 1)} 
                     atm={currentCountry.atm.slice(Math.max(0, currentTimeIndex - 20), currentTimeIndex + 1)} 
+                    t={t}
                   />
                   <div className="mono small text-accent mt-2 animate-pulse" style={{ fontSize: '0.6rem' }}>
                     {currentCountry.ci_series[currentTimeIndex] > 0.1 ? ">>> COUPLAGE ACTIF DÉTECTÉ" : ">>> RECHERCHE DE CONVERGENCE..."}
@@ -547,13 +626,13 @@ const App = () => {
               </div>
             ))}
             <div className="mono small text-dim italic mt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '8px', fontSize: '0.55rem' }}>
-              * Calibration : Normales saisonnières 1991-2020 // Source : Copernicus ERA5.
+              * {lang === 'FR' ? 'Calibration : Normales saisonnières 1991-2020 // Source : Copernicus ERA5.' : 'Calibration: 1991-2020 Seasonal Normals // Source: Copernicus ERA5.'}
             </div>
           </div>
         </section>
 
         <section style={{ marginTop: 'auto' }}>
-          <h3 className="uppercase small text-dim">Kernel : Réponse Temporelle</h3>
+          <h3 className="uppercase small text-dim">{t('temporal_response')}</h3>
           <div className="card" style={{ height: '50px', display: 'flex', alignItems: 'flex-end', gap: '2px', padding: '4px' }}>
             {computed.kernel.map((val, i) => (
               <div key={i} style={{ flex: 1, height: `${val * 100}%`, background: 'var(--text-accent)', opacity: 0.1 + (val * 5), borderRadius: '1px' }} />
@@ -599,7 +678,7 @@ const App = () => {
 
         <div style={{ position: 'absolute', bottom: '2rem', right: '2rem' }} className="mono text-accent small flex gap-3 items-center">
           <Globe size={16} /> 
-          <span style={{ letterSpacing: '2px' }}>VÉRUS PLANÈTE TERRE // SYSTÈME ACTIF // 1975-2026</span>
+          <span style={{ letterSpacing: '2px' }}>{t('planetary_system')}</span>
         </div>
       </main>
 
@@ -671,24 +750,24 @@ const App = () => {
         <div className="modal-overlay" onClick={() => setShowProjectInfo(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
             <div className="modal-header">
-              <h2 className="mono text-accent uppercase" style={{ margin: 0 }}>PROJET KERNEL EARTH // MANIFESTE</h2>
+              <h2 className="mono text-accent uppercase" style={{ margin: 0 }}>{t('manifesto_title')}</h2>
               <button className="icon-btn" onClick={() => setShowProjectInfo(false)}><X /></button>
             </div>
             <div className="mono small text-dim flex flex-col gap-4">
               <p>
-                La question à laquelle ce projet <strong className="text-accent">Kernel Earth</strong> essaie de répondre par l'observation est : <strong className="text-accent">existe-t-il un lien entre les réactions psycho-émotionnelles collectives des humains qui font suite à un événement dans le monde et les phénomènes climatiques en Europe ?</strong>
+                {t('manifesto_q')}
               </p>
               <p>
-                Pour tenter de répondre à cette question, il a été créé un <strong className="text-accent">sismographe de couplage psycho-atmosphérique</strong>.
+                {t('sismograph_desc')}
               </p>
               <p>
-                Il ne s'agit pas d'une prévision météo, mais d'une mesure de la synchronisation entre <span className="text-accent">l'attention collective</span> (psyché résiduelle ε) et les <span className="text-accent">anomalies climatiques</span> (z-scores atmosphériques).
+                {t('measure_desc')}
               </p>
               <p>
-                Le <strong className="text-accent">Coupling Index (CI)</strong> est calculé dynamiquement en temps réel selon les paramètres du Kernel de réponse temporelle que vous ajustez dans le panneau de gauche.
+                {t('ci_desc')}
               </p>
               <p style={{ marginTop: '1.5rem', borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem', fontSize: '0.65rem' }}>
-                LOGS: CALCULS OLS EFFECTUÉS COTÉ CLIENT // RÉFÉRENTIEL GÉODÉSIQUE WGS84 // DONNÉES SOURCES : ERA5 & WIKIMEDIA API.
+                {t('baseline')}
               </p>
             </div>
           </div>
@@ -735,14 +814,14 @@ const App = () => {
                     boxShadow: '0 4px 20px rgba(0,0,0,0.3)'
                   }}>
                     <div className="text-accent mb-1 uppercase bold" style={{ fontSize: '0.45rem', opacity: 0.7, letterSpacing: '2px' }}>
-                      {m.role === 'bot' ? 'AGENT KERNEL' : 'UTILISATEUR'}
+                      {m.role === 'bot' ? 'AGENT KERNEL' : (lang === 'FR' ? 'UTILISATEUR' : 'USER')}
                     </div>
                     <div className="mono text-sm" style={{ color: '#fff', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>{formatMessage(m.text)}</div>
                   </div>
                 ))}
                 {isThinking && (
                   <div className="animate-pulse" style={{ background: 'rgba(15, 23, 42, 0.4)', padding: '12px', alignSelf: 'flex-start', borderLeft: '2px solid #fbbf24', maxWidth: '80%' }}>
-                    <div className="text-dim uppercase" style={{ fontSize: '0.4rem', letterSpacing: '2px' }}>SYNCHRONISATION EN COURS...</div>
+                    <div className="text-dim uppercase" style={{ fontSize: '0.4rem', letterSpacing: '2px' }}>{t('thinking')}</div>
                   </div>
                 )}
                 <div style={{ height: '40px' }} />
@@ -759,14 +838,14 @@ const App = () => {
             }}>
               <div className="flex flex-col gap-4">
                  <div className="flex flex-wrap gap-2">
-                    <button onClick={() => sendMessage(`Comparer ${selectedCountry} avec ERA5`)} className="card cursor-pointer" style={{ padding: '5px 12px', fontSize: '0.55rem', background: 'rgba(255,255,255,0.03)' }}>
-                      &gt; Comparer ERA5
+                    <button onClick={() => sendMessage(lang === 'FR' ? `Comparer ${selectedCountry} avec ERA5` : `Compare ${selectedCountry} with ERA5`)} className="card cursor-pointer" style={{ padding: '5px 12px', fontSize: '0.55rem', background: 'rgba(255,255,255,0.03)' }}>
+                      &gt; {lang === 'FR' ? 'Comparer' : 'Compare'} ERA5
                     </button>
-                    <button onClick={() => sendMessage(`Motifs décennie ${activeDecade}`)} className="card cursor-pointer" style={{ padding: '5px 12px', fontSize: '0.55rem', background: 'rgba(255,255,255,0.03)' }}>
-                      &gt; Motifs {activeDecade}
+                    <button onClick={() => sendMessage(lang === 'FR' ? `Motifs décennie ${activeDecade}` : `${activeDecade} Patterns`)} className="card cursor-pointer" style={{ padding: '5px 12px', fontSize: '0.55rem', background: 'rgba(255,255,255,0.03)' }}>
+                      &gt; {lang === 'FR' ? 'Motifs' : 'Patterns'} {activeDecade}
                     </button>
-                    <button onClick={() => sendMessage("Diagnostic système")} className="card cursor-pointer" style={{ padding: '5px 12px', fontSize: '0.55rem', background: 'rgba(255,255,255,0.03)' }}>
-                      &gt; Diagnostic CI
+                    <button onClick={() => sendMessage(lang === 'FR' ? "Diagnostic système" : "System Diagnostic")} className="card cursor-pointer" style={{ padding: '5px 12px', fontSize: '0.55rem', background: 'rgba(255,255,255,0.03)' }}>
+                      &gt; {lang === 'FR' ? 'Diagnostic CI' : 'CI Diagnostic'}
                     </button>
                  </div>
                  
@@ -775,7 +854,7 @@ const App = () => {
                       autoFocus
                       className="flex-1 bg-transparent border-none outline-none text-accent mono text-sm"
                       style={{ borderBottom: '1px solid rgba(34, 197, 94, 0.4)', paddingBottom: '10px' }}
-                      placeholder="Transmission au Kernel..."
+                      placeholder={t('input_placeholder')}
                       value={inputText}
                       onChange={e => setInputText(e.target.value)}
                       onKeyDown={e => e.key === 'Enter' && sendMessage(inputText)}
