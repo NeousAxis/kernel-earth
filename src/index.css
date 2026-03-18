@@ -40,23 +40,6 @@ body {
   grid-template-rows: 70px 1fr auto;
 }
 
-@media (max-width: 1024px) {
-  #root {
-    grid-template-columns: 300px 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  #root {
-    grid-template-areas: 
-      "header"
-      "main"
-      "footer";
-    grid-template-columns: 1fr;
-    grid-template-rows: 70px 1fr auto;
-  }
-}
-
 header {
   grid-area: header;
   background: rgba(2, 6, 23, 0.95);
@@ -66,22 +49,8 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  z-index: 1000;
+  z-index: 10;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-}
-
-@media (max-width: 768px) {
-  header {
-    padding: 0.75rem 1rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  .logo {
-    font-size: 1.1rem;
-    width: 100%;
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
 }
 
 .logo {
@@ -97,36 +66,15 @@ header {
 .sidebar {
   grid-area: sidebar;
   border-right: 2px solid var(--border-color);
-  background: linear-gradient(180deg, rgba(30, 41, 59, 1) 0%, rgba(2, 6, 23, 1) 100%);
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.3) 0%, rgba(2, 6, 23, 0.5) 100%);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   overflow-y: auto;
-  overflow-x: hidden;
-  z-index: 100;
-  transform: none !important;
-}
-
-/* Utilitaires visibilité pour React */
-.desktop-hidden { display: none !important; }
-@media (max-width: 768px) {
-  .desktop-hidden { display: flex !important; }
-  .mobile-hidden { display: none !important; }
-  
-  .sidebar {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    bottom: 0;
-    width: 320px;
-    z-index: 2000;
-    transform: translateX(-100%) !important;
-    transition: transform 0.3s ease;
-  }
-  .sidebar.open {
-    transform: translateX(0) !important;
-  }
+  overflow-x: visible;
+  z-index: 20;
+  min-height: 0;
 }
 
 section h3 {
@@ -204,18 +152,6 @@ section h3 {
   padding: 0 2rem;
   gap: 2rem;
   z-index: 100;
-  min-height: 80px;
-}
-
-@media (max-width: 768px) {
-  .timeline {
-    padding: 0.5rem 1rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    height: auto;
-    min-height: 100px;
-  }
-  header .logo { width: auto; margin-bottom: 0; }
 }
 
 .mono {
