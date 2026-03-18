@@ -1,0 +1,14 @@
+# Kernel Earth - Gitignore
+node_modules/
+.env
+.vercel/
+dist/
+build/
+.DS_Store
+*.log
+venv/
+__pycache__/
+.cache/
+data.json
+historical_analysis.json
+.vercel
