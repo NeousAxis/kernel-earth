@@ -181,7 +181,7 @@ const TRANSLATIONS: any = {
     }
   }
 };
-import { Thermometer, Users, Zap, Settings, Activity, Download, Info, HelpCircle, X, Globe, Clock, Send } from 'lucide-react';
+import { Thermometer, Users, Zap, Settings, Activity, Download, Info, HelpCircle, X, Globe, Clock, Send, Menu } from 'lucide-react';
 import EuropeMap from './components/EuropeMap';
 import KernelOrb from './components/KernelOrb';
 import { useClimateCoupling } from './hooks/useClimateCoupling';
@@ -336,11 +336,23 @@ const App = () => {
 
   const [activeDecade, setActiveDecade] = useState('2010s');
   const [showKernelDialog, setShowKernelDialog] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const decades = useMemo(() => ['1970s', '1980s', '1990s', '2000s', '2010s', '2020s'], []);
-  const [messages, setMessages] = useState<any[]>([{ role: 'bot', text: `Je suis prêt. Je peux analyser les singularités de la décennie ${activeDecade} ou comparer les chocs entre les pays européens. Que souhaitez-vous savoir sur l'anomalie actuelle (${selectedCountry}) ?` }]);
+  const [messages, setMessages] = useState<any[]>([]);
+
+  // Initialisation du chat avec la bonne langue
   const [inputText, setInputText] = useState('');
   const [isThinking, setIsThinking] = useState(false);
 
+  useEffect(() => {
+    if (messages.length === 0) {
+      setMessages([{ 
+        role: 'bot', 
+        text: t('initial_msg').replace('{decade}', activeDecade).replace('{country}', selectedCountry) 
+      }]);
+    }
+  }, [lang, activeDecade, selectedCountry]);
+  
   const chatEndRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const container = document.getElementById('chat-container');
@@ -458,6 +470,13 @@ const App = () => {
         <div className="logo">{t('logo')} // <span className="text-accent">{t('coupling')}</span></div>
         <div className="mono small text-dim flex gap-4 items-center">
           <button 
+            className="md:hidden icon-btn" 
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            style={{ border: '1px solid var(--border-color)', padding: '4px' }}
+          >
+            <Menu size={20} />
+          </button>
+          <button 
             className="icon-btn px-2 py-1" 
             onClick={() => setLang(lang === 'FR' ? 'EN' : 'FR')}
             style={{ border: '1px solid var(--text-accent)', color: 'var(--text-accent)', fontWeight: 'bold' }}
@@ -480,7 +499,13 @@ const App = () => {
         </div>
       </header>
 
-      <aside className="sidebar">
+      <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+        <div className="flex justify-between items-center md:hidden mb-4">
+           <div className="text-accent bold">MENU</div>
+           <button onClick={() => setIsSidebarOpen(false)} className="icon-btn">
+             <X size={24} />
+           </button>
+        </div>
         <section>
           <h3><Settings size={14} /> {lang === 'FR' ? 'CONTRÔLE DYNAMIQUE' : 'DYNAMIC CONTROL'}</h3>
           <div className="card">
