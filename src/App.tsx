@@ -86,6 +86,7 @@ const TRANSLATIONS: any = {
       condition: "Analyse du champ ε sur {country} : Avec un couplage de {val}%, la psyché commence à 'piloter' la structure des vents.",
       methodo: "Contrairement aux modèles NWP, je calcule le couplage via z-scores dans {country}. Zone de transition à {val}%.",
       status: "Kernel v4.2 opérationnel. Canal {country}. CI={ci}.",
+      projection: "🌀 PRÉVISION : Un choc ε a été détecté aujourd'hui. Avec votre retard L={L}j, la résonance atmosphérique z est statistiquement attendue vers le {date}.",
       default: "Analyse en temps réel pour {country} : signal de {val}% détecté pour {activeDecade}."
     }
   },
@@ -175,6 +176,7 @@ const TRANSLATIONS: any = {
       condition: "Analysis of ε field on {country}: With {val}% coupling, psyche starts 'driving' wind structure.",
       methodo: "Unlike NWP models, I calculate coupling via z-scores in {country}. Transition zone at {val}%.",
       status: "Kernel v4.2 operational. Channel {country}. CI={ci}.",
+      projection: "🌀 FORECAST : A psychic shock ε was detected today. With your delay L={L}d, the atmospheric resonance z is statistically expected around {date}.",
       default: "Real-time analysis for {country}: {val}% signal detected for {activeDecade}."
     }
   }
@@ -397,7 +399,11 @@ const App = () => {
       const globalVal = (computed.ci_global_series?.[currentTimeIndex] || 0) * 100;
       const r = TRANSLATIONS[lang].responses;
       
-      if (lower.includes("faible") || lower.includes("bas") || lower.includes("low") || lower.includes("7%")) {
+      if (lower.includes("prévision") || lower.includes("forecast") || lower.includes("suite") || lower.includes("next")) {
+        const projectedDate = new Date(liveTime.getTime() + (params.L * 24 * 60 * 60 * 1000));
+        const dateStr = projectedDate.toLocaleDateString(lang === 'FR' ? 'fr-FR' : 'en-US');
+        response = r.projection.replace('{L}', params.L.toString()).replace('{date}', dateStr);
+      } else if (lower.includes("faible") || lower.includes("bas") || lower.includes("low") || lower.includes("7%")) {
         response = globalVal < 10 ? r.low.replace('{val}', globalVal.toFixed(2)) : r.high.replace('{val}', globalVal.toFixed(2));
       } else if (lower.includes("europe") || lower.includes("global") || lower.includes("world") || lower.includes("mond") || lower.includes("tout") || lower.includes("continent")) {
         response = r.europe.replace('{val}', globalVal.toFixed(2));
