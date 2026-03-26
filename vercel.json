@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "frontend/package.json",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": { "distDir": "dist" }
     },
@@ -13,16 +13,12 @@
   ],
   "rewrites": [
     {
-      "source": "/api/kernel/chat",
-      "destination": "/api/chat.js"
-    },
-    {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },
     {
-      "source": "/((?!api/).*)",
-      "destination": "/frontend/$1"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
