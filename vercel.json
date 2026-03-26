@@ -13,11 +13,15 @@
   ],
   "rewrites": [
     {
+      "source": "/api/kernel/chat",
+      "destination": "/api/chat.js"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "destination": "/frontend/$1"
     }
   ]
