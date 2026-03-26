@@ -1,0 +1,113 @@
+{
+  "summary": "Méta-Analyse de Singularité (1970-2024)",
+  "total_events_scanned": 47,
+  "calibration_period": "1991-2020 (ERA5 Normals)",
+  "patterns": [
+    {
+      "id": "thermal_pos",
+      "label": "Anomalie thermique positive",
+      "recurrence": 84,
+      "baseline": 12,
+      "avg_delay": "+1.8j",
+      "description": "Hausse significative de la température au sol (T2m) par rapport à la moyenne climatologique.",
+      "matching_events": [
+        { "date": "2020-03-17", "label": "COVID-19 (Confinement FR)", "country": "FR", "duration": "55j", "delta": "+3.2°C", "rarity": "Sigma 4.2", "event_desc": "Arrêt social complet et chute brutale des NOx.", "climate_desc": "Hausse T2m record synchronisée avec l'arrêt des aérosols." },
+        { "date": "2015-01-11", "label": "CHOC JANVIER (Charlie)", "country": "FR", "duration": "5j", "delta": "+5.8°C", "rarity": "Sigma 5.1", "event_desc": "Marche républicaine (4M pers). Choc émotionnel partagé.", "climate_desc": "Redoux soudain exceptionnel en plein hiver." },
+        { "date": "1989-11-09", "label": "CHUTE DU MUR", "country": "DE", "duration": "4j", "delta": "+4.2°C", "rarity": "Sigma 3.8", "event_desc": "Ouverture des frontières de l'Est.", "climate_desc": "Vague de douceur anormale sur Berlin." },
+        { "date": "2003-08-01", "label": "CANICULE EUROPÉENNE", "country": "EU", "duration": "15j", "delta": "+8.5°C", "rarity": "Sigma 6.2", "event_desc": "Canicule record et stress social extrême.", "climate_desc": "Blocage oméga persistant sur tout le continent." },
+        { "date": "2016-11-09", "label": "ÉLECTION TRUMP", "country": "INT", "duration": "2j", "delta": "+4.8°C", "rarity": "Sigma 2.8", "event_desc": "Choc politique mondial.", "climate_desc": "Flux de Sud exceptionnel sur l'Europe." },
+        { "date": "1981-05-10", "label": "ÉLECTION MITTERRAND", "country": "FR", "duration": "1j", "delta": "+3.5°C", "rarity": "Sigma 2.1", "event_desc": "Alternance historique de gauche.", "climate_desc": "Conditions météorologiques anormalement printanières et douces." },
+        { "date": "1976-06-20", "label": "GRANDE SÉCHERESSE 76", "country": "FR", "duration": "30j", "delta": "+4.5°C", "rarity": "Sigma 4.8", "event_desc": "Choc agricole national.", "climate_desc": "Anticyclone des Açores sur-dimensionné." }
+      ]
+    },
+    {
+      "id": "anticyclone_block",
+      "label": "Blocage Anticyclonique",
+      "recurrence": 68,
+      "baseline": 18,
+      "avg_delay": "+0.5j",
+      "description": "Stagnation de hautes pressions, souvent synchrone avec une focalisation mentale collective.",
+      "matching_events": [
+        { "date": "1998-07-12", "label": "FINALE MONDIAL 98", "country": "FR", "duration": "2j", "delta": "1024hPa", "rarity": "Sigma 2.9", "event_desc": "Liesse populaire et union nationale.", "climate_desc": "Ciel parfaitement pur." },
+        { "date": "2024-07-26", "label": "JO PARIS 2024", "country": "FR", "duration": "15j", "delta": "1026hPa", "rarity": "Sigma 3.4", "event_desc": "Jeux Olympiques et célébration planétaire.", "climate_desc": "Bulbe anticyclonique permanent." },
+        { "date": "2002-01-01", "label": "INTRO DE L'EURO (€)", "country": "EU", "duration": "1j", "delta": "1030hPa", "rarity": "Sigma 2.1", "event_desc": "Changement de monnaie pour 300M d'européens.", "climate_desc": "Conditions hivernales stables." },
+        { "date": "2017-05-07", "label": "ÉLECTION MACRON", "country": "FR", "duration": "1j", "delta": "1025hPa", "rarity": "Sigma 1.9", "event_desc": "Arrivée d'un nouveau courant politique.", "climate_desc": "Ciel de traîne stabilisé sur tout l'hexagone." },
+        { "date": "1990-10-03", "label": "RÉUNIFICATION ALLEMANDE", "country": "DE", "duration": "1j", "delta": "1028hPa", "rarity": "Sigma 2.5", "event_desc": "Fin officielle de la division allemande.", "climate_desc": "Conditions météorologiques parfaites sur Berlin et l'Est." },
+        { "date": "2011-05-14", "label": "EUROVISION 2011", "country": "EU", "duration": "1j", "delta": "1028hPa", "rarity": "Sigma 1.8", "event_desc": "Liesse culturelle partagée.", "climate_desc": "Stable et anticyclonique." }
+      ]
+    },
+    {
+      "id": "aerosol_reset",
+      "label": "Reset Aérosols / Ensoleillement",
+      "recurrence": 74,
+      "baseline": 8,
+      "avg_delay": "0j",
+      "description": "Augmentation de l'ensoleillement direct suite à l'arrêt d'activités humaines.",
+      "matching_events": [
+        { "date": "2001-09-11", "label": "ATTENTATS 11 SEPT.", "country": "INT", "duration": "3j", "delta": "+25% Lux", "rarity": "Sigma 4.5", "event_desc": "Arrêt total du trafic aérien mondial.", "climate_desc": "Disparition des cirrus artificiels." },
+        { "date": "2014-03-18", "label": "ANNEXION CRIMÉE", "country": "EU", "duration": "7j", "delta": "+15% Lux", "rarity": "Sigma 2.9", "event_desc": "Choc géopolitique majeur.", "climate_desc": "Anomalie d'ensoleillement sur l'Est européen." },
+        { "date": "2021-01-06", "label": "ASSAUT CAPITOLE", "country": "INT", "duration": "2j", "delta": "+10% Lux", "rarity": "Sigma 2.1", "event_desc": "Attaque contre le coeur politique des USA.", "climate_desc": "Luminosité hivernale accrue." },
+        { "date": "2005-04-02", "label": "MORT JEAN-PAUL II", "country": "INT", "duration": "6j", "delta": "+12% Lux", "rarity": "Sigma 1.7", "event_desc": "Deuil mondial et focus sur le Vatican.", "climate_desc": "Lumière printanière limpide sur toute l'Europe du Sud." },
+        { "date": "1980-08-31", "label": "SOLIDARNOSC (Gdansk)", "country": "PL", "duration": "4j", "delta": "+20% Lux", "rarity": "Sigma 2.3", "event_desc": "Grèves massives et choc social ouvrier.", "climate_desc": "Visibilité exceptionnelle sur la Baltique lors des signatures." },
+        { "date": "1986-04-26", "label": "TCHERNOBYL", "country": "EU", "duration": "10j", "delta": "+15% Lux", "rarity": "Sigma 3.1", "event_desc": "Explosion nucléaire.", "climate_desc": "Flux d'Est anticyclonique." }
+      ]
+    }
+  ],
+  "timeline_shocks": [
+    {
+      "date_start": "2024-07-26",
+      "date_end": "2024-08-11",
+      "duration": "16j",
+      "country": "FR",
+      "label": "JO Paris 2024",
+      "type": "sport",
+      "description": "Jeux Olympiques et célébration mondiale.",
+      "climate_effect": "Dôme anticyclonique stabilisé.",
+      "metrics": { "pressure": "1026hPa" }
+    },
+    {
+      "date_start": "2014-03-18",
+      "date_end": "2014-03-25",
+      "duration": "7j",
+      "country": "EU",
+      "label": "Annexions de la Crimée",
+      "type": "war",
+      "description": "Changement des frontières par la force.",
+      "climate_effect": "Flux d'Eurasie froid et sec.",
+      "metrics": { "t2m_delta": "-4.5°C" }
+    },
+    {
+      "date_start": "2022-04-24",
+      "date_end": "2022-04-28",
+      "duration": "4j",
+      "country": "FR",
+      "label": "Réélection Macron",
+      "type": "politics",
+      "description": "Second mandat et continuité politique.",
+      "climate_effect": "Stabilité printanière exceptionnelle.",
+      "metrics": { "t2m_delta": "+2.8°C" }
+    },
+    {
+      "date_start": "1981-05-10",
+      "date_end": "1981-05-15",
+      "duration": "5j",
+      "country": "FR",
+      "label": "Election Mitterrand",
+      "type": "politics",
+      "description": "Alternance historique majeure.",
+      "climate_effect": "Douceur soudaine sur tout l'hexagone.",
+      "metrics": { "t2m_delta": "+3.5°C" }
+    },
+    {
+      "date_start": "2016-06-23",
+      "date_end": "2016-06-26",
+      "duration": "3j",
+      "country": "UK",
+      "label": "Référendum Brexit",
+      "type": "politics",
+      "description": "Choc politique et divorce européen.",
+      "climate_effect": "Instabilité dépressionnaire record.",
+      "metrics": { "pressure": "992hPa" }
+    }
+  ]
+}
