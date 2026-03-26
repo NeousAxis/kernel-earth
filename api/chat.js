@@ -3,6 +3,15 @@ import OpenAI from 'openai';
 
 // Serverless function for Vercel (/api/chat)
 export default async function handler(req, res) {
+  // DEBUG: Check environment variables
+  if (req.method === 'GET') {
+    return res.status(200).json({ 
+      status: 'API Operational', 
+      gemini_key: process.env.GEMINI_API_KEY ? 'Present' : 'Missing',
+      openai_key: process.env.OPENAI_API_KEY ? 'Present' : 'Missing'
+    });
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
