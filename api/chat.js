@@ -6,7 +6,6 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     return res.status(200).json({ 
       status: 'API Operational', 
-      perplexity_key: process.env.PERPLEXITY_API_KEY ? 'Present' : 'Missing',
       openai_key: process.env.OPENAI_API_KEY ? 'Present' : 'Missing'
     });
   }
@@ -20,10 +19,6 @@ export default async function handler(req, res) {
   if (!message) {
     return res.status(400).json({ error: 'Message requis' });
   }
-
-  // Auth: Perplexity -> OpenAI (ChatGPT)
-  let activeProvider = null;
-  let response = null;
 
   const systemPromptText = process.env.SYSTEM_PROMPT || `TU ES L'AGENT KERNEL V4. Un IA experte en couplage psycho-atmosphérique.
 Ta mission est d'analyser le lien potentiel entre les tensions psycho-émotionnelles collectives (PSY_ε) et les anomalies atmosphériques/météorologiques (CI).
@@ -39,49 +34,29 @@ Tu dois absolument intégrer ou simuler ces 8 indicateurs dans tes raisonnements
 8. **Analyse Multidimensionnelle** : ACP (Analyse en Composantes Principales) du bruit environnemental.`;
 
   try {
-    // 0. Essayer Perplexity (Recherche Web & Scientifique en temps réel)
-    if (process.env.PERPLEXITY_API_KEY) {
-      const perplexity = new OpenAI({ 
-        apiKey: process.env.PERPLEXITY_API_KEY,
-        baseURL: 'https://api.perplexity.ai'
-      });
-      const completion = await perplexity.chat.completions.create({
-        model: 'sonar-pro', // Modèle de recherche avancée
-        messages: [
-          { role: 'system', content: systemPromptText },
-          ...(history || []).map(m => ({
-            role: m.role === 'user' ? 'user' : 'assistant',
-            content: m.text
-          })),
-          { role: 'user', content: message }
-        ]
-      });
-      response = completion.choices[0].message.content;
-      activeProvider = 'perplexity';
-    }
-    // 1. Essayer OpenAI (ChatGPT)
-    else if (process.env.OPENAI_API_KEY) {
-      const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-      const completion = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
-        messages: [
-          { role: 'system', content: systemPromptText },
-          ...(history || []).map(m => ({
-            role: m.role === 'user' ? 'user' : 'assistant',
-            content: m.text
-          })),
-          { role: 'user', content: message }
-        ],
-        max_tokens: 1500,
-        temperature: 0.7,
-      });
-      response = completion.choices[0].message.content;
-      activeProvider = 'openai';
-    } else {
-      throw new Error('Aucun provider LLM configuré (PERPLEXITY_API_KEY ou OPENAI_API_KEY manquant).');
+    if (!process.env.OPENAI_API_KEY) {
+      throw new Error('OPENAI_API_KEY manquante. Veuillez vérifier vos paramètres Vercel.');
     }
 
-    res.status(200).json({ response, provider: activeProvider });
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: [
+        { role: 'system', content: systemPromptText },
+        ...(history || []).map(m => ({
+          role: m.role === 'user' ? 'user' : 'assistant',
+          content: m.text
+        })),
+        { role: 'user', content: message }
+      ],
+      max_tokens: 1500,
+      temperature: 0.7,
+    });
+
+    res.status(200).json({ 
+      response: completion.choices[0].message.content, 
+      provider: 'openai' 
+    });
   } catch (err) {
     console.error('LLM Error:', err);
     res.status(500).json({ error: err.message });
