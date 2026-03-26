@@ -74,8 +74,11 @@ TU DOIS AVOIR L'IDÉE DE T'EN SERVIR : si l'utilisateur te parle d'une anomalie 
       }
     ];
 
+    // Injection du contexte (données de l'interface) pour que l'Agent "voie" ce dont l'utilisateur parle
+    const contextPrompt = context ? `\n\n[DONNÉES EN DIRECT DU GLOBE POUR CETTE ANALYSE] :\n${JSON.stringify(context)}\nUtilise ces données exactes pour répondre !` : '';
+
     const messages = [
-      { role: 'system', content: systemPromptText },
+      { role: 'system', content: systemPromptText + contextPrompt },
       ...(history || []).map(m => ({
         role: m.role === 'user' ? 'user' : 'assistant',
         content: m.text
